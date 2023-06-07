@@ -1,5 +1,6 @@
 @tailwind base;
 @tailwind components;
+<<<<<<< HEAD
 @tailwind utilities;
 
 * {
@@ -918,3 +919,6 @@ height: 100px;
 left: 971px;
 top: 2748px;
 }
+=======
+@tailwind utilities;
+>>>>>>> 9380225fdfaa20906e719ccb3df505b969427276
