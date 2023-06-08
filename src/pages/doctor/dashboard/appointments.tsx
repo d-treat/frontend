@@ -1,8 +1,19 @@
+import Calendar from '@/components/calendar'
+import ProfileSidebar from '@/components/profileSidebar'
+import Head from 'next/head'
 import React from 'react'
 
 const DoctorsAppointments = () => {
     return (
-        <div>DoctorsAppointments</div>
+        <>
+            <Head>
+                <title>D Treat | Your appointments</title>
+            </Head>
+            <main className='flex'>
+                <Calendar/>
+                {/* <ProfileSidebar/> */}
+            </main>
+        </>
     )
 }
 

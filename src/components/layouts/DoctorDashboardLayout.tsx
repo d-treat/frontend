@@ -27,7 +27,7 @@ const DoctorDashboardLayout = ({ children }: Props) => {
     return (
         <div className='w-full h-screen flex '>
             {/* sidebar */}
-            <div className='w-[20vw] h-full p-4 space-y-10 border-r-2 border-grayish-100'>
+            <div className='w-[20vw] lg:w-[15vw] h-full p-4 space-y-10 border-r-2 border-grayish-100'>
                 <Logo showText />
                 <div className='flex flex-col gap-5 px-4'>
                     {
@@ -37,7 +37,7 @@ const DoctorDashboardLayout = ({ children }: Props) => {
                     }
                 </div>
             </div>
-            <div className='w-[80vw] z-10 h-screen px-6'>
+            <div className='w-[80vw] lg:w-[85%] z-10 h-screen px-6 lg:px-10'>
                 {/* navbar */}
                 <div className='w-full h-[10vh] flex items-center justify-between'>
                     <div className='min-w-[25vw] border border-grayish-100 rounded-lg  flex items-center group group-focus:border-primary-100 '>
