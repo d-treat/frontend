@@ -45,7 +45,7 @@ export default function Doctors() {
           <div className="sm:flex-auto">
             <h1 className="text-xl font-semibold leading-6 text-gray-900">Doctors</h1>
             <p className="mt-2  text-gray-700">
-              A list of all the users in your account including their name, title, email and role.
+              Information about  all the users in your organization including their name, title, email and role.
             </p>
           </div>
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
