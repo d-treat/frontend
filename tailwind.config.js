@@ -18,6 +18,9 @@ module.exports = {
         },
         'secondary': {
           '100':'#2B4360'
+        },
+        'grayish':{
+          '100':'#F5F5F5'
         }
       }
     },

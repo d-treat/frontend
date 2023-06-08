@@ -1,8 +1,17 @@
+import DashboardLayout from '@/components/layouts/DashboardLayout'
+import Head from 'next/head'
 import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <>
+    <Head>
+      <title>D Treat | Hospital&apos;s Overview</title>
+    </Head>
+      <DashboardLayout>
+
+      </DashboardLayout>
+    </>
   )
 }
 
