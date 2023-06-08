@@ -8,4 +8,7 @@
         border: 0.5px solid rgba(43, 67, 96, 0.25);
       @apply py-2 px-3 rounded-md  text-gray-700 w-full hover:border-primary-100 outline-none focus:ring-1 ring-primary-100;
     }
+    .td{
+      @apply whitespace-nowrap px-3 py-2 text-sm text-gray-500;
+    }
 }

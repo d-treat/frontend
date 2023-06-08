@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
-import { AiOutlineQuestionCircle,AiOutlineBell } from 'react-icons/ai';
-import { FaBell, FaSearch } from 'react-icons/fa';
+import { AiOutlineBell, AiOutlineQuestionCircle } from 'react-icons/ai';
+import { FaSearch } from 'react-icons/fa';
 import Logo from '../common/logo';
 import SidebarLink from '../sidebar/link';
 
@@ -22,13 +22,13 @@ const links: ILink[] = [
     { title: "settings", icon: 'setting-2.svg', href: '/admin/dashboard/settings' },
 ]
 
-const DashboardLayout = ({ children }: Props) => {
+const AdminDashboardLayout = ({ children }: Props) => {
     return (
         <div className='w-full h-screen flex '>
             {/* sidebar */}
-            <div className='w-[20vw] h-full p-4 space-y-10 border-r-2 border-grayish-100'>
+            <div className='w-[20vw] lg:w-[15vw] h-full p-4 space-y-10 border-r-2 border-grayish-100'>
                 <Logo showText />
-                <div className='flex flex-col gap-5 px-4'>
+                <div className='flex flex-col gap-5 px-4 lg:px-2'>
                     {
                         links.map((link, index) => (
                             <SidebarLink {...link} key={link.title} />
@@ -36,10 +36,10 @@ const DashboardLayout = ({ children }: Props) => {
                     }
                 </div>
             </div>
-            <div className='w-[80vw] z-10 h-screen px-6'>
+            <div className='w-[80vw] lg:w-[85%] z-10 h-screen px-6 lg:px-10'>
                 {/* navbar */}
                 <div className='w-full h-[10vh] flex items-center justify-between'>
-                    <div className='min-w-[25vw] border border-grayish-100 rounded-lg  flex items-center group group-focus:border-primary-100 '>
+                    <div className='min-w-[25vw] border border-grayish-100 rounded-lg  flex items-center group group-focus:border-primary-100  shadow'>
                         <input type="text" placeholder='Search' className='w-full h-full px-4 py-3 outline-none ' />
                         <div className='p-2'>
                             <FaSearch className='text-gray-500 text-base' />
@@ -61,4 +61,4 @@ const DashboardLayout = ({ children }: Props) => {
     )
 }
 
-export default DashboardLayout
+export default AdminDashboardLayout

@@ -53,7 +53,7 @@ const DoctorDashboardLayout = ({ children }: Props) => {
                         <div role='button' className='py-1 px-2 rounded-md border hover:border-primary-100 text-gray-500 hover:text-primary-100 '>
                             <AiOutlineQuestionCircle className=' text-2xl' />
                         </div>
-                        <div role='button' className='py-1 px-2 rounded-md border hover:border-primary-100 text-gray-500 hover:text-red-400 hover:border-red-400 '>
+                        <div role='button' className='py-1 px-2 rounded-md border text-gray-500 hover:text-red-400 hover:border-red-400 '>
                             <FiLogOut className=' text-2xl' />
                         </div>
 
