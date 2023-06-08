@@ -28,7 +28,7 @@ const DashboardLayout = ({ children }: Props) => {
             {/* sidebar */}
             <div className='w-[20vw] h-full p-4 space-y-10 border-r-2 border-grayish-100'>
                 <Logo showText />
-                <div className='flex flex-col gap-5'>
+                <div className='flex flex-col gap-5 px-4'>
                     {
                         links.map((link, index) => (
                             <SidebarLink {...link} key={link.title} />
@@ -53,7 +53,7 @@ const DashboardLayout = ({ children }: Props) => {
                 </div>
 
                 {/* page content */}
-                <div className='w-full h-[90vh] bg-red-50'>
+                <div className='w-full h-[90vh]'>
                     {children}
                 </div>
             </div>

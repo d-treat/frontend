@@ -14,7 +14,7 @@ const FormInput = ({ primary, textarea, placeholder, value, type, onChange }: Pr
           <textarea
             placeholder={placeholder}
             className='form-input '
-            rows={1}
+            rows={3}
             value={value}
           /> :
           <input

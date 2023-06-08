@@ -68,7 +68,7 @@ const RequestPartnership = () => {
               onChange={(e) => setFormData((prev) => {
                 return {
                   ...prev,
-                  email: e.target.value
+                  fullNames: e.target.value
                 }
               })}
             />
@@ -96,37 +96,35 @@ const RequestPartnership = () => {
                 }
               })}
             />
-            <FormInput placeholder='Address' value={formData.phoneNumber} type='text'
-              onChange={(e) => setFormData((prev) => {
-                return {
-                  ...prev,
-                  address: e.target.value
+            <div className='col-span-2 grid grid-cols-2 gap-4'>
+              <div className='w-full flex flex-col gap-4'>
+                <FormInput placeholder='Address' value={formData.phoneNumber} type='text'
+                  onChange={(e) => setFormData((prev) => {
+                    return {
+                      ...prev,
+                      address: e.target.value
+                    }
+                  })}
+                />
+                <FormInput placeholder='Proof of ownership' value={formData.proofOfOwnership?.name} type='file' onChange={(e) => setFormData((prev) => {
+                  return {
+                    ...prev,
+                    proofOfOwnership: e.target.files ? e.target.files[0] : null
+                  }
                 }
-              })}
-            />
-            <FormInput placeholder='Proof of ownership' value={formData.proofOfOwnership?.name} type='file' onChange={(e) => setFormData((prev) => {
-              return {
-                ...prev,
-                proofOfOwnership: e.target.files ? e.target.files[0] : null
-              }
-            }
-            )} />
-            <FormInput placeholder='Number of employees' value={formData.numberOfEmployees} type='number' onChange={(e) => setFormData((prev) => {
-              return {
-                ...prev,
-                proofOfOwnership: e.target.files ? e.target.files[0] : null
-              }
-            }
-            )} />
-            <FormInput placeholder='Message(Why should we have partnership with you)' value={formData.message} textarea
-              onChange={(e) => setFormData((prev) => {
-                return {
-                  ...prev,
-                  message: e.target.value
+                )} />
+              </div>
+
+              <FormInput placeholder='Message(Why should we have partnership with you)' value={formData.message} textarea
+                onChange={(e) => setFormData((prev) => {
+                  return {
+                    ...prev,
+                    message: e.target.value
+                  }
                 }
-              }
-              )}
-            />
+                )}
+              />
+            </div>
           </div>
           <div className='w-full gap-4  flex items-center justify-between'>
             <Button onClick={handleCancel}>

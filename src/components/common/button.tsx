@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
 
 interface Props extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     dark?: boolean
-    children?: React.ReactNode
+    children?: React.ReactNode,
 }
 const Button = ({ dark, children, onClick,type }: Props) => {
     return (
