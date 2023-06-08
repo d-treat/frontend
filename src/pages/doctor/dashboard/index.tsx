@@ -8,10 +8,6 @@ const DoctorDashboard = () => {
       <Head>
         <title>D Treat | Your Dashbaord</title>
       </Head>
-
-      <DoctorDashboardLayout>
-
-      </DoctorDashboardLayout>
     </>
   )
 }

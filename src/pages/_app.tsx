@@ -28,11 +28,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className={`${leagueSpartan.className}`}>
       <Toaster />
       {
-        router.pathname.includes('/admin') ?
+        (router.pathname.includes('/admin') && !router.pathname.includes("/login")) ?
           <AdminDashboardLayout>
             <Component {...pageProps} />
           </AdminDashboardLayout> :
-          router.pathname.includes('/doctor') ?
+          (router.pathname.includes('/doctor') && !router.pathname.includes("/login") && !router.pathname.includes('/register')) ?
             <DoctorDashboardLayout>
               <Component {...pageProps} />
             </DoctorDashboardLayout> :
