@@ -11,6 +11,7 @@ import NProgress from 'nprogress';
 import { Toaster } from 'react-hot-toast';
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
+  preload:true
 });
 
 NProgress.configure({
