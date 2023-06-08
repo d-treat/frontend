@@ -1,11 +1,10 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
-import {OverView} from '../pages/doctor/overView'
+import "../styles/globals.css";
+import { OverView } from "./doctor/overView";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App() {
   return (
     <div>
-      <OverView />
+      <OverView></OverView>
     </div>
   )
 }
