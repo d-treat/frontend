@@ -11,5 +11,9 @@
     .td{
       @apply whitespace-nowrap px-3 py-2 text-sm text-gray-500;
     }
+
+    .primary-padding{
+      @apply xl:px-24 lg:px-20 md:px-12 sm:px-8 px-4;
+    }
 }
 

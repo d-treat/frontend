@@ -23,7 +23,7 @@ const HomeNav = () => {
                     <Link href='/login'>
                         <p>Login</p>
                     </Link>
-                    <Link href='/register'>
+                    <Link href='/request-partnership'>
                         <Button className='px-4'>
                             Request Partnership
                         </Button>

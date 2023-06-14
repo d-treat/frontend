@@ -12,13 +12,13 @@ const Hero = () => {
                     anywhere! Learn more about the best solution
                     for modern and digital healthcare.</p>
 
-                <Button dark className='w-fit px-6 space-x-3 group'>
+                <Button dark className='w-max px-6 space-x-3 group'>
                     <span>Get Started</span>
                     <FaArrowRight className='group-hover:scale-125 duration-300' />
                 </Button>
             </div>
             <div className='relative'>
-                <div className='w-[40vw] rounded-xl h-[65vh] relative object-contain'>
+                <div className='w-[40vw] rounded-xl md:h-[65vh] xl:h-[60vh] relative object-contain'>
                     <Image src={'/images/doctor.png'} fill alt='doctor' />
                     <div className='absolute top-0 left-0 width-full h-full opacity-50' style={{
                         background: 'linear-gradient(55.8deg, #D9D9D9 0%, #D9D9D9 0.01%, rgba(217, 217, 217, 0) 101.29%)'
