@@ -3,13 +3,14 @@ import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
 interface Props extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     dark?: boolean
     children?: React.ReactNode,
+    className?: string,
 }
-const Button = ({ dark, children, onClick,type }: Props) => {
+const Button = ({ dark, children, onClick, type, className }: Props) => {
     return (
         <button className={
             `text-white w-full py-2 rounded-md capitalize text-center flex items-center justify-center
              ${dark ? "bg-secondary-100" : "bg-primary-100"
-            }`}
+            } ${className}`}
             onClick={onClick}
             type={type}
         >

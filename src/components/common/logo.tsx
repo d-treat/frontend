@@ -7,7 +7,7 @@ const Logo = ({ showText }: IProps) => {
     return (
         <div className='flex items-center'>
 
-            <svg width="109" height="110" viewBox="0 0 109 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="105" height="106" viewBox="0 0 109 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_dd_656_499)">
                     <ellipse cx="54.4569" cy="41.0808" rx="26.1483" ry="26.637" fill="#218D82" />
                 </g>
@@ -44,7 +44,7 @@ const Logo = ({ showText }: IProps) => {
                     </filter>
                 </defs>
             </svg>
-            {showText && <p className='uppercase pb-2 text-secondary-100 text-xl'>d-treat</p>}
+            {showText && <p className='uppercase pb-2 text-secondary-100 text-lg'>d-treat</p>}
         </div>
 
     )
