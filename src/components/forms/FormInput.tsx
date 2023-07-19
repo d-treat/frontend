@@ -1,29 +1,47 @@
-import React from 'react'
-import { cva } from 'class-variance-authority';
+import React from 'react';
+
+interface Option {
+  value: string;
+  label: string;
+}
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-  primary?: boolean
-  textarea?: boolean
+  primary?: boolean;
+  textarea?: boolean;
+  options?: Option[];
 }
 
-const FormInput = ({ primary, textarea, placeholder, value, type, onChange }: Props) => {
+const FormInput: React.FC<Props> = ({ primary, textarea, placeholder, value, type, onChange, options }) => {
+  if (type === 'dropdown' && options) {
+    return (
+      <select className={`form-input${primary ? ' primary' : ''}`} value={value} >
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    );
+  }
+
+  if (textarea) {
+    return (
+      <textarea
+        placeholder={placeholder}
+        className={`form-input${primary ? ' primary' : ''}`}
+        value={value}
+        rows={3}
+      />
+    );
+  }
+
   return (
-    <div>
-      {
-        textarea ?
-          <textarea
-            placeholder={placeholder}
-            className='form-input '
-            rows={3}
-            value={value}
-          /> :
-          <input
-            value={value}
-            placeholder={placeholder}
-            className='form-input'
-          />}
-    </div>
-  )
-}
+    <input
+      value={value}
+      placeholder={placeholder}
+      className={`form-input${primary ? ' primary' : ''}`}
+    />
+  );
+};
 
-export default FormInput
+export default FormInput;

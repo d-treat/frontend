@@ -2,8 +2,10 @@ import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import Head from 'next/head'
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
 import { AiFillEye } from 'react-icons/ai';
+import AddNewCase from '@/components/modals/addNewCase';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
@@ -36,18 +38,36 @@ const cases: ICase[] = [
 ]
 
 const Cases = () => {
+  const [showModal, setShowModal] = useState(false)
   return (
     <>
       <Head>
         <title>D Treat | Cases in your organization</title>
       </Head>
+        
+      
       <main className='space-y-4'>
+      {showModal && <AddNewCase/>}
+        <div className='sm:flex sm:items-center pb-3 border-b'>
         <div className="sm:flex-auto">
           <h1 className="text-xl font-semibold leading-6 text-gray-900">Cases</h1>
           <p className="mt-2  text-gray-700">
             information about  all the cases in you are assigned to.
           </p>
         </div>
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+            <button
+             onClick={()=>setShowModal(true)}
+              type="button"
+              className="rounded-md bg-primary-100 px-3 py-2 flex items-center gap-2 text-center font-semibold text-white shadow-sm hover:bg-primary-100/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              {/* <AiOutlinePlus /> */}
+              <span>
+                create new case
+              </span>
+            </button>
+          </div>
+          </div>
         {/* <div className="pt-2">
           <h3 className="text-base font-semibold leading-6 text-gray-900 pb-2">Stats in Last 30 days</h3> */}
         {/* <dl className="grid grid-cols-1 divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow md:grid-cols-4 md:divide-x md:divide-y-0"
