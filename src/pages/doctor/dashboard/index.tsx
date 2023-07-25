@@ -4,6 +4,8 @@ import Image from 'next/image'
 import React from 'react'
 import {AiOutlineVideoCamera, AiFillSchedule} from 'react-icons/ai'
 import {RxSwitch} from 'react-icons/rx'
+import Switch from 'react-switch'
+import { useState } from 'react'
 import ProfileSidebar from '@/components/profileSidebar'
 
 // interface IAppointment{
@@ -29,6 +31,10 @@ const todo: IToDo[] = [
   }
 ]
 const DoctorDashboard = () => {
+  const [checked, setChecked] = useState<boolean>(false);
+  const handleChange = (checked:boolean) => {
+    setChecked(checked);
+  };
   return (
     <>
       <Head>
@@ -38,14 +44,14 @@ const DoctorDashboard = () => {
         <div className='flex flex-col md:flex-row'>
           <div className='flex w-3/4 gap-4'>
             <div className='w-1/2'>
-              <h1 className='text-xl font-semibold leading-6 text-gray-600'>Dashboard</h1>
+              <h1 className='text-2xl font-semibold leading-6 text-gray-600 pb-3'>Dashboard</h1>
               <div className='bg-[#fbeeea] w-[100%] h-[80vh]'>
                 
               </div>
             </div>
-            <div className='w-1/2'>
+            <div className='w-1/2 px-3'>
             <div className=''>
-            <h1 className='text-xl font-semibold leading-6 text-gray-600'>upcoming appointments</h1>
+            <h1 className='text-2xl font-semibold leading-6 text-gray-600'>Upcoming appointments</h1>
             <div className='flex-grow w-full'>
               {new Array(2).fill(appointment[0]).map((app)=>(
                 <div key={app.name} className='border border-[#218D82]  my-3 rounded-sm w-5/5 px-3 pt-2 flex bg-gray-100'>
@@ -65,7 +71,7 @@ const DoctorDashboard = () => {
             </div>
             </div>
             <div>
-            <h1 className='text-xl font-semibold leading-6 text-gray-600'>upcoming appointments</h1>
+            <h1 className='text-2xl font-semibold leading-6 text-gray-600'>My To-Do</h1>
             <div className=''>
               {new Array(4).fill(todo[0]).map((to: IToDo)=>(
                 <div key={to.task} className=' my-3 rounded-sm w-5/5 px-3 pt-2 flex bg-gray-100'>
@@ -73,15 +79,15 @@ const DoctorDashboard = () => {
                   <p>{to.task}</p>
                   <p>{to.time}</p>
                   </div>
-                  <div className='mt-3 ml-auto'>
-                    <RxSwitch className=' ' />
+                  <div className='mt-3 ml-auto '>
+                  <Switch onChange={handleChange} checked={checked} height={20} width={40} />
                   </div>
                 </div>
                 
               ))}
             </div>
             </div>
-            <button type='button' className="rounded-md border border-black border-dashed px-4 py-2 flex items-center gap-2 text-center  text-gray-400 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-5/5 mt-4 py-3 "> <AiFillSchedule /> Schedule an Appointment</button>
+            <button type='button' className=" rounded-md border border-black border-dashed px-4 py-2 flex items-center gap-2 text-center  text-gray-400 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-5/5 mt-4 py-3 "> <AiFillSchedule /> Schedule an Appointment</button>
             </div>
           </div>
           <div className='w-1/4'>
