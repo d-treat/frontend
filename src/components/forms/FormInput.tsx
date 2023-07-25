@@ -14,9 +14,9 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 const FormInput: React.FC<Props> = ({ primary, textarea, placeholder, value, type, onChange, options }) => {
   if (type === 'dropdown' && options) {
     return (
-      <select className={`form-input${primary ? ' primary' : ''}`} value={value} >
+      <select className={`form-input${primary ? ' primary' : ''}`} value={value} placeholder='gender' >
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
+          <option key={option.value} value={option.value} className='form-input'>
             {option.label}
           </option>
         ))}

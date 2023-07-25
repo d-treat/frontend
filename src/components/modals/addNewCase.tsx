@@ -64,7 +64,7 @@ export default function AddNewCase() {
                                                 placeholder="gender"
                                                 type="dropdown"
                                                 options={[
-                                                { value: 'male', label: 'Male' },
+                                                { value: 'male', label: 'Male'  },
                                                 { value: 'female', label: 'Female' },
                                                 ]}
                                             />
