@@ -54,7 +54,7 @@ function ProfileSidebar() {
 
   return (
     <div className="w-[20vw]">
-      <div className="pt-12">
+      <div className="">
         <div className="border-b border-green-300 ml-3"></div>
       </div>
       <div className="rounded-full w-8 h-8 border border-[#218D82] mt-4 ml-4 relative">

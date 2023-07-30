@@ -18,6 +18,7 @@ const RequestPartnership = () => {
     address: string;
     numberOfEmployees: string;
     message: string;
+    password: string;
     proofOfOwnership: File | null;
   }>({
     fullNames: '',
@@ -26,6 +27,7 @@ const RequestPartnership = () => {
     email: '',
     address: '',
     message: '',
+    password: '',
     numberOfEmployees: '',
     proofOfOwnership: null
   });
@@ -38,6 +40,7 @@ const RequestPartnership = () => {
       email: '',
       address: '',
       message: '',
+      password: '',
       numberOfEmployees: '',
       proofOfOwnership: null
     })
@@ -96,6 +99,7 @@ const RequestPartnership = () => {
                 }
               })}
             />
+            
             <div className='col-span-2 grid grid-cols-2 gap-4'>
               <div className='w-full flex flex-col gap-4'>
                 <FormInput placeholder='Address' value={formData.phoneNumber} type='text'
@@ -113,6 +117,14 @@ const RequestPartnership = () => {
                   }
                 }
                 )} />
+                <FormInput placeholder='Password' value={formData.password} type='password'
+              onChange={(e) => setFormData((prev) => {
+                return {
+                  ...prev,
+                  paswword: e.target.value
+                }
+              })}
+            />
               </div>
 
               <FormInput placeholder='Message(Why should we have partnership with you)' value={formData.message} textarea

@@ -23,7 +23,7 @@ interface doctorSidebarProps {
 const DoctorSidebar: React.FC<doctorSidebarProps> = ({ doctor }) => {
   // Add your sidebar content here using the 'doctor' prop
   return (
-    <div className="w-[20vw] bg-white md:absolute top-10 right-0 mr-4 ">
+    <div className="w-[20vw] bg-white md:absolute top-10 right-0 mr-4 ease-out duration-300">
       <div className="pt-12">
         <div className="border-b border-green-300 ml-3"></div>
       </div>
