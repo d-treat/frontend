@@ -30,7 +30,7 @@ const FormInput: React.FC<Props> = ({ primary, textarea, placeholder, value, typ
         placeholder={placeholder}
         className={`form-input${primary ? ' primary' : ''}`}
         value={value}
-        rows={3}
+        rows={4}
       />
     );
   }
