@@ -2,13 +2,15 @@ import Button from '@/components/common/button'
 import Spinner from '@/components/common/spinner'
 import FormInput from '@/components/forms/FormInput'
 import AuthLayout from '@/components/layouts/AuthLayout'
+import useRequests from '@/hooks/useRequests'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React, { FormEvent, useState } from 'react'
+import toast from 'react-hot-toast'
 
 const RequestPartnership = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const { creatingRequest, createRequest } = useRequests();
 
   const [formData, setFormData] = useState<{
     fullNames: string;
@@ -16,9 +18,8 @@ const RequestPartnership = () => {
     phoneNumber: string;
     email: string;
     address: string;
-    numberOfEmployees: string;
+    // numberOfEmployees: string;
     message: string;
-    password: string;
     proofOfOwnership: File | null;
   }>({
     fullNames: '',
@@ -27,8 +28,7 @@ const RequestPartnership = () => {
     email: '',
     address: '',
     message: '',
-    password: '',
-    numberOfEmployees: '',
+    // numberOfEmployees: '',
     proofOfOwnership: null
   });
 
@@ -40,19 +40,18 @@ const RequestPartnership = () => {
       email: '',
       address: '',
       message: '',
-      password: '',
-      numberOfEmployees: '',
+      // numberOfEmployees: '',
       proofOfOwnership: null
     })
   }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      router.push('/admin/dashboard');
-    }, 2000)
+    if (!formData.fullNames || !formData.organization || !formData.phoneNumber || !formData.email || !formData.address || !formData.message || !formData.proofOfOwnership) {
+      toast.error('Please fill all fields');
+      return;
+    }
+    createRequest(formData);
   }
 
   return (
@@ -67,7 +66,7 @@ const RequestPartnership = () => {
             <p className='text-gray-400 text-lg'>Welcome to D-treat. Please enter your details</p>
           </div>
           <div className='w-full grid grid-cols-2 gap-4'>
-            <FormInput placeholder='Full Names' value={formData.fullNames} type='email'
+            <FormInput placeholder='Full Names' value={formData.fullNames} type='text'
               onChange={(e) => setFormData((prev) => {
                 return {
                   ...prev,
@@ -91,7 +90,7 @@ const RequestPartnership = () => {
                 }
               })}
             />
-            <FormInput placeholder='Email' value={formData.phoneNumber} type='email'
+            <FormInput placeholder='Email' value={formData.email} type='email'
               onChange={(e) => setFormData((prev) => {
                 return {
                   ...prev,
@@ -99,10 +98,10 @@ const RequestPartnership = () => {
                 }
               })}
             />
-            
+
             <div className='col-span-2 grid grid-cols-2 gap-4'>
               <div className='w-full flex flex-col gap-4'>
-                <FormInput placeholder='Address' value={formData.phoneNumber} type='text'
+                <FormInput placeholder='Address' value={formData.address} type='text'
                   onChange={(e) => setFormData((prev) => {
                     return {
                       ...prev,
@@ -110,21 +109,14 @@ const RequestPartnership = () => {
                     }
                   })}
                 />
-                <FormInput placeholder='Proof of ownership' value={formData.proofOfOwnership?.name} type='file' onChange={(e) => setFormData((prev) => {
+                <FormInput file placeholder='Proof of ownership' value={formData.proofOfOwnership?.name} type='file' onChange={(e) => setFormData((prev) => {
                   return {
                     ...prev,
                     proofOfOwnership: e.target.files ? e.target.files[0] : null
                   }
                 }
                 )} />
-                <FormInput placeholder='Password' value={formData.password} type='password'
-              onChange={(e) => setFormData((prev) => {
-                return {
-                  ...prev,
-                  paswword: e.target.value
-                }
-              })}
-            />
+
               </div>
 
               <FormInput placeholder='Message(Why should we have partnership with you)' value={formData.message} textarea
@@ -139,11 +131,11 @@ const RequestPartnership = () => {
             </div>
           </div>
           <div className='w-full gap-4  flex items-center justify-between'>
-            <Button onClick={handleCancel}>
+            <Button type='button' onClick={handleCancel}>
               Cancel
             </Button>
-            <Button dark type='submit'>
-              {loading ? <Spinner /> : 'send request'}
+            <Button disabled={creatingRequest} dark type='submit'>
+              {creatingRequest ? <Spinner /> : 'send request'}
             </Button>
           </div>
         </form>

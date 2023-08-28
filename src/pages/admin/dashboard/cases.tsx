@@ -1,7 +1,5 @@
-import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
-import Head from 'next/head'
-import Image from 'next/image';
-import React from 'react'
+import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
+import Head from 'next/head';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');

@@ -73,25 +73,25 @@ export const testimonials: { name: string, image: string, description: string }[
 
 export const features: { title: string, description: string, bg: string,textColor:string }[] = [
     {
-        title: 'Audio Call',
+        title: 'Virtual Reality',
         bg: "linear-gradient(131.63deg, rgba(226, 149, 120, 0.25) 26.47%, rgba(217, 217, 217, 0.1) 100%)",
         description: '',
         textColor:'#E29578'
     },
     {
-        title: 'Chat',
+        title: 'Seamless Communication',
         bg: "linear-gradient(66.04deg, rgba(217, 217, 217, 0.1) 0%, rgba(33, 141, 130, 0.25) 100%)",
         description: '',
         textColor:'#218D82'
     },
     {
-        title: 'Video Call',
+        title: 'Medical Records',
         bg: 'linear-gradient(228.37deg, rgba(33, 141, 130, 0.25) 26.47%, rgba(217, 217, 217, 0.1) 100%)',
         description: '',
         textColor:'#218D82'
     },
     {
-        title: 'Messaging',
+        title: '24/7 Support',
         bg: 'linear-gradient(112.35deg, rgba(226, 149, 120, 0.25) 2.19%, rgba(217, 217, 217, 0) 100%, rgba(217, 217, 217, 0.1) 100%)',
         description: '',
         textColor:'#E29578'

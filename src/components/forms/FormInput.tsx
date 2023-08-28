@@ -8,13 +8,14 @@ interface Option {
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   primary?: boolean;
   textarea?: boolean;
+  file?: boolean;
   options?: Option[];
 }
 
-const FormInput: React.FC<Props> = ({ primary, textarea, placeholder, value, type, onChange, options }) => {
+const FormInput: React.FC<Props> = ({ primary, textarea, placeholder, value, type, onChange, options, file }) => {
   if (type === 'dropdown' && options) {
     return (
-      <select className={`form-input${primary ? ' primary' : ''}`} value={value} placeholder='gender' >
+      <select className={`form-input ${primary ? ' primary' : ''}`} value={value} placeholder='gender' >
         {options.map((option) => (
           <option key={option.value} value={option.value} className='form-input'>
             {option.label}
@@ -30,14 +31,34 @@ const FormInput: React.FC<Props> = ({ primary, textarea, placeholder, value, typ
         placeholder={placeholder}
         className={`form-input${primary ? ' primary' : ''}`}
         value={value}
+        // @ts-ignore
+        onChange={onChange}
         rows={4}
       />
     );
   }
 
+  if (file) {
+    return (
+      <div
+        className={`form-input relative ${primary ? ' primary' : ''}`}
+      >
+        {/* absolute input and visible text */}
+        <input
+          type='file'
+          className='absolute inset-0 w-full h-full opacity-0 cursor-pointer'
+          onChange={onChange}
+        />
+        <span className='text-gray-400'>{value || placeholder}</span>
+      </div>
+    )
+  }
+
   return (
     <input
       value={value}
+      type={type || "text"}
+      onChange={onChange}
       placeholder={placeholder}
       className={`form-input${primary ? ' primary' : ''}`}
     />

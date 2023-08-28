@@ -1,6 +1,7 @@
 import { features } from "@/data"
 import Image from "next/image"
 import Button from "../common/button"
+import Link from "next/link"
 
 export const Features = () => {
   return (
@@ -33,10 +34,12 @@ export const Features = () => {
             ))
           }
         </div>
-        <Button dark className="w-max px-6">
-          Request Partnership
-        </Button>
+        <Link href={'/request-partnership'} className="mt-6">
+          <Button dark className="w-max px-6">
+            Request Partnership
+          </Button>
+        </Link>
       </div>
-    </div>
+    </div >
   )
 }
