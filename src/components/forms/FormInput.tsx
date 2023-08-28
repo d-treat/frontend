@@ -43,8 +43,8 @@ const FormInput: React.FC<Props> = ({ primary, textarea, placeholder, value, typ
       <div
         className={`form-input relative ${primary ? ' primary' : ''}`}
       >
-        {/* absolute input and visible text */}
         <input
+          accept='application/pdf'
           type='file'
           className='absolute inset-0 w-full h-full opacity-0 cursor-pointer'
           onChange={onChange}

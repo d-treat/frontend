@@ -1,17 +1,17 @@
 import AdminDashboardLayout from '@/components/layouts/AdminDashboardLayout';
 import DoctorDashboardLayout from '@/components/layouts/DoctorDashboardLayout';
-import '@/styles/globals.css'
+import '@/styles/globals.css';
 import "@/styles/nprogress.css";
-import type { AppProps } from 'next/app'
-import { League_Spartan } from "next/font/google"
-import { useRouter } from 'next/router';
-import Router from 'next/router';
+import type { AppProps } from 'next/app';
+import { League_Spartan } from "next/font/google";
+import Router, { useRouter } from 'next/router';
 // @ts-ignore
 import NProgress from 'nprogress';
 import { Toaster } from 'react-hot-toast';
+import { RecoilRoot } from 'recoil';
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
-  preload:true
+  preload: true
 });
 
 NProgress.configure({
@@ -26,19 +26,21 @@ Router.events.on('routeChangeError', () => NProgress.done());
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
-    <div className={`${leagueSpartan.className}`}>
-      <Toaster />
-      {
-        (router.pathname.includes('/admin') && !router.pathname.includes("/login")) ?
-          <AdminDashboardLayout>
-            <Component {...pageProps} />
-          </AdminDashboardLayout> :
-          (router.pathname.includes('/doctor') && !router.pathname.includes("/login") && !router.pathname.includes('/register')) ?
-            <DoctorDashboardLayout>
+    <RecoilRoot>
+      <div className={`${leagueSpartan.className}`}>
+        <Toaster />
+        {
+          (router.pathname.includes('/admin') && !router.pathname.includes("/login")) ?
+            <AdminDashboardLayout>
               <Component {...pageProps} />
-            </DoctorDashboardLayout> :
-            <Component {...pageProps} />
-      }
-    </div>
+            </AdminDashboardLayout> :
+            (router.pathname.includes('/doctor') && !router.pathname.includes("/login") && !router.pathname.includes('/register')) ?
+              <DoctorDashboardLayout>
+                <Component {...pageProps} />
+              </DoctorDashboardLayout> :
+              <Component {...pageProps} />
+        }
+      </div>
+    </RecoilRoot>
   )
 }

@@ -1,16 +1,20 @@
+import RequestCreated from '@/components/RequestCreated'
 import Button from '@/components/common/button'
 import Spinner from '@/components/common/spinner'
 import FormInput from '@/components/forms/FormInput'
 import AuthLayout from '@/components/layouts/AuthLayout'
 import useRequests from '@/hooks/useRequests'
+import { requestCreatedAtom } from '@/store/atoms'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React, { FormEvent, useState } from 'react'
 import toast from 'react-hot-toast'
+import { useRecoilValue } from 'recoil'
 
 const RequestPartnership = () => {
   const router = useRouter();
   const { creatingRequest, createRequest } = useRequests();
+  const requestCreated = useRecoilValue(requestCreatedAtom);
 
   const [formData, setFormData] = useState<{
     fullNames: string;
@@ -60,7 +64,7 @@ const RequestPartnership = () => {
         <title>D Treat | Request Partnership</title>
       </Head>
       <AuthLayout pageTitle='Welcome to d-treat'>
-        <form onSubmit={(e) => handleSubmit(e)} className='w-full px-12 space-y-6'>
+        {!requestCreated ? <form onSubmit={(e) => handleSubmit(e)} className='w-full px-12 space-y-6'>
           <div className='space-y-1'>
             <h1 className='text-secondary-100 text-3xl font-medium'>Request Partnership</h1>
             <p className='text-gray-400 text-lg'>Welcome to D-treat. Please enter your details</p>
@@ -109,13 +113,16 @@ const RequestPartnership = () => {
                     }
                   })}
                 />
-                <FormInput file placeholder='Proof of ownership' value={formData.proofOfOwnership?.name} type='file' onChange={(e) => setFormData((prev) => {
-                  return {
-                    ...prev,
-                    proofOfOwnership: e.target.files ? e.target.files[0] : null
+                <FormInput
+                  // only accept pdf
+                  accept='application/pdf'
+                  file placeholder='Proof of ownership' value={formData.proofOfOwnership?.name} type='file' onChange={(e) => setFormData((prev) => {
+                    return {
+                      ...prev,
+                      proofOfOwnership: e.target.files ? e.target.files[0] : null
+                    }
                   }
-                }
-                )} />
+                  )} />
 
               </div>
 
@@ -138,7 +145,8 @@ const RequestPartnership = () => {
               {creatingRequest ? <Spinner /> : 'send request'}
             </Button>
           </div>
-        </form>
+        </form> :
+          <RequestCreated />}
       </AuthLayout>
     </>
   )

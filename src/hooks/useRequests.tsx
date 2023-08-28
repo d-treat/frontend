@@ -1,6 +1,8 @@
 import axios from "@/axios.config";
+import { requestCreatedAtom } from "@/store/atoms";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useRecoilState } from "recoil";
 
 interface Options {
     fullNames: string;
@@ -8,13 +10,13 @@ interface Options {
     phoneNumber: string;
     email: string;
     address: string;
-    // numberOfEmployees: string;
     message: string;
     proofOfOwnership: File | null;
 }
 
 export default function useRequests() {
     const [creatingRequest, setCreatingRequest] = useState(false);
+    const [requestCreated, setRequestCreated] = useRecoilState(requestCreatedAtom);
 
     const createRequest = async ({ proofOfOwnership, message, phoneNumber, address, email, organization, fullNames, }: Options) => {
         setCreatingRequest(true);
@@ -43,6 +45,7 @@ export default function useRequests() {
 
                 if (success) {
                     toast.success('Request created successfully');
+                    setRequestCreated(true);
                 } else {
                     toast.error('Error creating request');
                 }
