@@ -4,6 +4,8 @@ import { AiOutlineBell, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { FaSearch } from 'react-icons/fa';
 import Logo from '../common/logo';
 import SidebarLink from '../sidebar/link';
+import Button from '../common/button';
+import Link from 'next/link';
 
 export interface ILink {
     icon: string;
@@ -49,6 +51,11 @@ const AdminDashboardLayout = ({ children }: Props) => {
                         <AiOutlineBell className='text-gray-400 text-2xl' />
                         <AiOutlineQuestionCircle className='text-gray-400 text-2xl' />
                         <Image src='https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80' alt='' width={40} height={40} className='rounded-full bg-gray-200' />
+                        <Link href={'/login'}>
+                            <Button dark className='flex items-center gap-2 px-4'>
+                                <span>logout</span>
+                            </Button>
+                        </Link>
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/axios.config";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -16,8 +16,10 @@ export default function useAuth() {
             });
             if (data.success) {
                 if (data.admin) {
+                    setUser(data.admin);
                     router.push('/admin/dashboard');
                 } else {
+                    setUser(data.doctor);
                     router.push('/doctor/dashboard')
                 }
             }
@@ -30,6 +32,6 @@ export default function useAuth() {
     }
 
     return {
-        login, loggingIn
+        login, loggingIn, user
     }
 }

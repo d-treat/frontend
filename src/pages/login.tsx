@@ -1,13 +1,12 @@
+import Loader from '@/components/Loader'
 import Button from '@/components/common/button'
 import FormInput from '@/components/forms/FormInput'
 import AuthLayout from '@/components/layouts/AuthLayout'
 import useAuth from '@/hooks/useAuth'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
 
 const Login = () => {
-    const router = useRouter();
     const { login, loggingIn } = useAuth();
 
     const [formData, setFormData] = useState({
@@ -56,6 +55,10 @@ const Login = () => {
                             })}
                         />
                     </div>
+
+                    <Button disabled={loggingIn} dark type='submit'>
+                        {loggingIn?<Loader/>:"Login"}
+                    </Button>
                 </form>
             </AuthLayout >
         </>
