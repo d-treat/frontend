@@ -1,13 +1,14 @@
 import Button from '@/components/common/button'
 import FormInput from '@/components/forms/FormInput'
 import AuthLayout from '@/components/layouts/AuthLayout'
+import useAuth from '@/hooks/useAuth'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
 
 const Login = () => {
     const router = useRouter();
-    const [loading, setLoading] = useState(false);
+    const { login, loggingIn } = useAuth();
 
     const [formData, setFormData] = useState({
         email: '',
@@ -16,11 +17,7 @@ const Login = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            router.push('/doctor/dashboard');
-        }, 2000)
+        login(formData.email, formData.password);
     }
 
     return (
