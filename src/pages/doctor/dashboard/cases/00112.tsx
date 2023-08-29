@@ -57,6 +57,7 @@ const Case = () => {
         <div className='flex justify-between'>
           <div className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-md transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6">
             <h1 className="text-xl font-semibold leading-6 text-gray-900 text-center">Progress</h1>
+            <Image src='/case-stats.png' alt='' width={300} height={300} />
             <div className='flex justify-between'>
               <button
                 type="button"
@@ -76,7 +77,7 @@ const Case = () => {
                   Mark completed
                 </span>
               </button>
-            </div>
+              I</div>
           </div>
           <div className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-md transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6">
             <h1 className="text-xl font-semibold leading-6 text-gray-900 text-center">Assigned doctors</h1>
