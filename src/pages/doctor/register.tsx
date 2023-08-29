@@ -1,11 +1,10 @@
 import Button from '@/components/common/button';
 import Spinner from '@/components/common/spinner';
 import FormInput from '@/components/forms/FormInput';
-import AuthLayout from '@/components/layouts/AuthLayout'
-import Head from 'next/head'
-import Link from 'next/link';
+import AuthLayout from '@/components/layouts/AuthLayout';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react';
 
 const NewDoctor = () => {
   const router = useRouter();
@@ -16,8 +15,8 @@ const NewDoctor = () => {
     organization: string;
     phoneNumber: string;
     email: string;
-    gender: string;
-    country: string;
+    gender: "male" | "female" | "other";
+    password: string;
     cv: File | null;
     description: string;
     specialization: string;
@@ -26,9 +25,9 @@ const NewDoctor = () => {
     organization: '',
     phoneNumber: '',
     email: '',
-    gender: '',
+    password: '',
+    gender: "male",
     description: '',
-    country: '',
     cv: null,
     specialization: ''
   });
@@ -39,21 +38,17 @@ const NewDoctor = () => {
       organization: '',
       phoneNumber: '',
       email: '',
-      gender: '',
+      password: '',
+      gender: 'male',
       description: '',
       specialization: '',
       cv: null,
-      country: ''
     })
   }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      router.push('/doctor/dashboard');
-    }, 2000)
+
   }
 
   return (
@@ -93,7 +88,8 @@ const NewDoctor = () => {
                 }
               })}
             />
-            <FormInput placeholder='Email' value={formData.phoneNumber} type='email'
+
+            <FormInput placeholder='Email' value={formData.email} type='email'
               onChange={(e) => setFormData((prev) => {
                 return {
                   ...prev,
@@ -101,9 +97,30 @@ const NewDoctor = () => {
                 }
               })}
             />
+            <FormInput placeholder='Gender' value={formData.gender}
+              options={
+                [{ label: "Male", value: "male" }, { label: "Female", value: "female" }, { label: "Other", value: "other" }]
+              }
+              type='dropdown'
+              // @ts-ignore
+              onSelectChange={(e) => setFormData((prev) => {
+                return {
+                  ...prev,
+                  gender: e.target.value
+                }
+              })}
+            />
+            <FormInput placeholder='Your Password' type='password' value={formData.password}
+              onChange={(e) => setFormData((prev) => {
+                return {
+                  ...prev,
+                  password: e.target.value
+                }
+              })}
+            />
             <div className='col-span-2 grid grid-cols-2 gap-4'>
               <div className='w-full flex flex-col gap-4'>
-                <FormInput placeholder='CV' value={formData.cv?.name} type='file'
+                <FormInput file placeholder='Your CV' value={formData.cv?.name} type='file'
                   onChange={(e) => setFormData((prev) => {
                     return {
                       ...prev,
@@ -129,26 +146,13 @@ const NewDoctor = () => {
                   }
                 })}
               />
+
+
             </div>
             <div className='w-full pt-5 flex flex-col items-center gap-4'>
               <Button type='submit'>
-                {loading ? <Spinner /> : 'Sign Up'}
+                {loading ? <Spinner /> : 'Submit Profile '}
               </Button>
-                <div className='w-full flex items-center gap-4 px-4'>
-                  <div className='w-40 h-[2px] bg-gray-200'/>
-                  <span>OR</span>
-                  <div className='w-40 h-[2px] bg-gray-200'/>
-
-                </div>
-              <Button dark>
-                Sign up with Google
-              </Button>
-              <div className='flex gap-2'>
-                <span>Already a member?</span>
-                <Link href={'/doctor/login'} className='text-primary-100'>
-                  Login
-                </Link>
-              </div>
             </div>
           </div>
 

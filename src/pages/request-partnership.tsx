@@ -7,7 +7,7 @@ import useRequests from '@/hooks/useRequests'
 import { requestCreatedAtom } from '@/store/atoms'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useRecoilValue } from 'recoil'
 

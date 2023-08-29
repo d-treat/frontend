@@ -3,10 +3,8 @@ import Spinner from '@/components/common/spinner'
 import FormInput from '@/components/forms/FormInput'
 import AuthLayout from '@/components/layouts/AuthLayout'
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 const DoctorLogin = () => {
   const router = useRouter();
@@ -66,12 +64,6 @@ const DoctorLogin = () => {
             <Button type='submit'>
               {loading ? <Spinner /> : 'Login'}
             </Button>
-            <div className='flex gap-2'>
-              <span>Didn&apos;t complete profile?</span>
-              <Link href={'/doctor/register'} className='text-primary-100'>
-                complete profile
-              </Link>
-            </div>
           </div>
         </form>
       </AuthLayout >

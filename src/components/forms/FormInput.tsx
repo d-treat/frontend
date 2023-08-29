@@ -8,16 +8,20 @@ interface Option {
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   primary?: boolean;
   textarea?: boolean;
+  onSelectChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   file?: boolean;
   options?: Option[];
 }
 
-const FormInput: React.FC<Props> = ({ primary, textarea, placeholder, value, type, onChange, options, file }) => {
+const FormInput: React.FC<Props> = ({ primary, textarea, placeholder, value, type, onChange, options, file, onSelectChange }) => {
   if (type === 'dropdown' && options) {
     return (
-      <select className={`form-input ${primary ? ' primary' : ''}`} value={value} placeholder='gender' >
+      <select
+        onChange={onSelectChange}
+        className={`form-input ${primary ? ' primary' : ''}`} value={value} placeholder='gender' >
         {options.map((option) => (
-          <option key={option.value} value={option.value} className='form-input'>
+          <option key={option.value}
+            value={option.value} className='form-input'>
             {option.label}
           </option>
         ))}
