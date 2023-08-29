@@ -1,13 +1,10 @@
-import React from 'react';
-import Head from 'next/head'
+import 'chart.js/auto';
+import Head from 'next/head';
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { Bar } from 'react-chartjs-2';
-import 'chart.js/auto';
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import Card from '@/components/card/card';
-import styles from "./adminCalendar.module.css"
+import styles from "./adminCalendar.module.css";
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 const stats =[

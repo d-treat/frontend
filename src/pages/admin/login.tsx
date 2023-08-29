@@ -3,10 +3,9 @@ import Spinner from '@/components/common/spinner'
 import FormInput from '@/components/forms/FormInput'
 import AuthLayout from '@/components/layouts/AuthLayout'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 const DoctorLogin = () => {
   const router = useRouter();

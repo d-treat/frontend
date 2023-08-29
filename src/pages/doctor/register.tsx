@@ -2,13 +2,14 @@ import Button from '@/components/common/button';
 import Spinner from '@/components/common/spinner';
 import FormInput from '@/components/forms/FormInput';
 import AuthLayout from '@/components/layouts/AuthLayout';
+import useProfile from '@/hooks/useProfile';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FormEvent, useState } from 'react';
 
 const NewDoctor = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+   const { createProfile, creatingProfile } = useProfile();
 
   const [formData, setFormData] = useState<{
     fullNames: string;
@@ -48,7 +49,7 @@ const NewDoctor = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    createProfile(formData);
   }
 
   return (
@@ -151,11 +152,10 @@ const NewDoctor = () => {
             </div>
             <div className='w-full pt-5 flex flex-col items-center gap-4'>
               <Button type='submit'>
-                {loading ? <Spinner /> : 'Submit Profile '}
+                {creatingProfile ? <Spinner /> : 'Submit Profile '}
               </Button>
             </div>
           </div>
-
         </form>
       </AuthLayout>
     </>

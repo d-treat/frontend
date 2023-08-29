@@ -58,4 +58,9 @@ export default function useProfile() {
             setCreatingprofile(false);
         }
     }
+
+    return {
+        creatingProfile,
+        createProfile
+    }
 }
