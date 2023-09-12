@@ -20,7 +20,7 @@ const links: ILink[] = [
     { title: 'Doctors', icon: 'user-octagon.svg', href: '/doctor/dashboard/doctors' },
     { title: "Cases", icon: 'data.svg', href: '/doctor/dashboard/cases' },
     { title: 'Appointments', icon: 'book.svg', href: '/doctor/dashboard/appointments' },
-    { title: "settings", icon: 'setting-2.svg', href: '/doctor/dashboard/settings' },
+    { title: "File Manager", icon: "menu.svg", href: "/doctor/dashboard/file-manager" }
 ]
 
 const DoctorDashboardLayout = ({ children }: Props) => {
