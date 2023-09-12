@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 // routes
-import { RouterLink } from 'src/routes/components';
+// import { RouterLink } from 'src/routes/components';
 // components
 import Iconify from 'src/components/iconify';
 
@@ -52,7 +52,7 @@ export default function FileManagerPanel({
       {link && (
         <Button
           href={link}
-          component={RouterLink}
+          // component={RouterLink}
           size="small"
           color="inherit"
           endIcon={<Iconify icon="eva:arrow-ios-forward-fill" width={18} sx={{ ml: -0.5 }} />}

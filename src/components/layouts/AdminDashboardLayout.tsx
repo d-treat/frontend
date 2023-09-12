@@ -21,6 +21,7 @@ const links: ILink[] = [
     { title: 'Overview', icon: 'menu.svg', href: '/admin/dashboard' },
     { title: 'Doctors', icon: 'user-octagon.svg', href: '/admin/dashboard/doctors' },
     { title: "Cases", icon: 'data.svg', href: '/admin/dashboard/cases' },
+    {title:"Files",icon:"data.svg",href:"/admin/dashboard/files"},
     { title: "settings", icon: 'setting-2.svg', href: '/admin/dashboard/settings' },
 ]
 
