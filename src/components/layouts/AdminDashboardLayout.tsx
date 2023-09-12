@@ -29,7 +29,7 @@ const AdminDashboardLayout = ({ children }: Props) => {
     return (
         <div className='w-full h-screen flex '>
             {/* sidebar */}
-            <div className='w-[20vw] lg:w-[15vw] h-full p-4 space-y-10 border-r-2 border-grayish-100'>
+            <div className='w-[20vw] lg:w-[15vw]  h-screen fixed top-0 left-0 p-4 space-y-10 border-r-2 border-grayish-100'>
                 <Logo showText />
                 <div className='flex flex-col gap-5 px-4 lg:px-2'>
                     {
@@ -39,9 +39,9 @@ const AdminDashboardLayout = ({ children }: Props) => {
                     }
                 </div>
             </div>
-            <div className='w-[80vw] lg:w-[85%] z-10 h-screen px-6 lg:px-10'>
+            <div className='w-[80vw] lg:w-[85%] ml-[20vw] lg:ml-[15%] z-10 h-screen px-6 lg:px-10'>
                 {/* navbar */}
-                <div className='w-full h-[10vh] flex items-center justify-between'>
+                <div className='  ml-[20vw] lg:ml-[15%]  w-[80vw] lg:w-[85%] h-[8vh] p-8 shadow-md z-50 bg-white fixed top-0 left-0 flex items-center justify-between'>
                     <div className='min-w-[25vw] border border-grayish-100 rounded-lg  flex items-center group group-focus:border-primary-100  shadow'>
                         <input type="text" placeholder='Search' className='w-full h-full px-4 py-3 outline-none ' />
                         <div className='p-2'>
@@ -61,7 +61,7 @@ const AdminDashboardLayout = ({ children }: Props) => {
                 </div>
 
                 {/* page content */}
-                <div className='w-full h-[90vh]'>
+                <div className='w-full mt-[10vh]'>
                     {children}
                 </div>
             </div>
