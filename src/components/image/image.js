@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';

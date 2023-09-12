@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import PropTypes from 'prop-types';
 import { forwardRef, useCallback } from 'react';
 // @mui
@@ -14,7 +15,7 @@ const ColorPicker = forwardRef(
     const singleSelect = typeof selected === 'string';
 
     const handleSelect = useCallback(
-      (color) => {
+      (color) => { 
         if (singleSelect) {
           if (color !== selected) {
             onSelectColor(color);

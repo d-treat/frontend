@@ -99,7 +99,7 @@ export default function OverviewFileView() {
           icon: <Box component="img" src="/assets/icons/files/ic_video.svg" />,
         },
         {
-          name: 'Documents',
+          name: 'Documents' ,
           usedStorage: GB / 5,
           filesCount: 223,
           icon: <Box component="img" src="/assets/icons/files/ic_document.svg" />,
