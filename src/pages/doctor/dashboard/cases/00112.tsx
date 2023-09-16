@@ -1,7 +1,8 @@
+import CaseProgress from "@/components/cases/CaseProgress";
+import Button from "@/components/common/button";
+import AddNewCase from '@/components/modals/addNewCase';
 import Head from 'next/head';
 import Image from 'next/image';
-import React from 'react'
-import AddNewCase from '@/components/modals/addNewCase';
 import { useState } from 'react';
 interface ICaseOverview {
   patientName: string;
@@ -54,67 +55,30 @@ const Case = () => {
             </button>
           </div>
         </div>
-        <div className='flex justify-between'>
-          <div className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-md transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6">
-            <h1 className="text-xl font-semibold leading-6 text-gray-900 text-center">Progress</h1>
-            <Image src='/case-stats.png' alt='' width={300} height={300} />
-            <div className='flex justify-between'>
-              <button
-                type="button"
-                className="rounded-md bg-primary-100 px-7 py-2 flex items-center gap-2 text-center font-semibold text-white shadow-sm hover:bg-primary-100/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-50"
-              >
-                {/* <AiOutlinePlus /> */}
-                <span>
-                  view Group chat
-                </span>
-              </button>
-              <button
-                type="button"
-                className="rounded-md bg-primary-100 px-7 py-2 flex items-center gap-2 text-center font-semibold shadow-md hover:bg-primary-100/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-50 bg-white text-[#218D82]"
-              >
-                {/* <AiOutlinePlus /> */}
-                <span>
-                  Mark completed
-                </span>
-              </button>
-              I</div>
-          </div>
-          <div className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-md transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6">
-            <h1 className="text-xl font-semibold leading-6 text-gray-900 text-center">Assigned doctors</h1>
-            <table className='w-full'>
-              <tbody className="divide-y divide-gray-200 bg-white">
-                {new Array(5).fill(doctors[0]).map((person) => (
-                  <tr key={person.department}>
-                    <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm sm:pl-0 ">
-                      <div className="flex items-center">
-                        <div className="h-11 w-11 flex-shrink-0">
-                          <Image className="rounded-full" src={person.image} alt="" width={50} height={50} />
-                        </div>
-                        <div className="ml-4">
-                          <div className="font-medium text-gray-900">{person.name}</div>
-                          <div className="mt-1 text-gray-500">{person.department}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                        <button
-                          type="button"
-                          className="rounded-md bg-primary-100 px-7 py-2 flex items-center gap-2 text-center font-semibold text-white shadow-sm hover:bg-primary-100/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-40"
-                        >
-                          {/* <AiOutlinePlus /> */}
-                          <span>
-                            view profile
-                          </span>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+        <div className='flex justify-between  min-h-[50vh] items-center'>
 
-              </tbody>
-            </table>
+          <div className="w-1/2 h-full space-y-6">
+            {/* @ts-ignore */}
+            <CaseProgress
+              title="Case Progress"
+              chart={{
+                series: [
+                  { label: 'Completed', value: 120 },
+                  { label: 'Ongoing', value: 66 },
+                ],
+              }}
+            />
+            <div className="flex items-center gap-4">
+              <Button>
+                View Group Chat
+              </Button>
+              <Button dark >
+                Mark Completed
+              </Button>
+            </div>
           </div>
+
+
         </div>
         <div className="mt-8 flow-root p-3 rounded-lg"
           style={{

@@ -8,11 +8,11 @@ import ListItemText from '@mui/material/ListItemText';
 // utils
 import { fData } from 'src/utils/format-number';
 // components
-import Chart, { useChart } from 'src/components/chart';
+import Chart, { useChart } from '@/components/chart';
 
 // ----------------------------------------------------------------------
 
-export default function FileStorageOverview({ data, total, chart, ...other }) {
+export default function FileStorageOverview({ data, showDetails = true, total, chart, ...other }) {
   const theme = useTheme();
 
   const { colors = [theme.palette.info.main, theme.palette.info.dark], series, options } = chart;
@@ -72,7 +72,7 @@ export default function FileStorageOverview({ data, total, chart, ...other }) {
     <Card {...other}>
       <Chart type="radialBar" series={[series]} options={chartOptions} height={360} />
 
-      <Stack spacing={3} sx={{ px: 3, pb: 5 }}>
+      {showDetails && <Stack spacing={3} sx={{ px: 3, pb: 5 }}>
         {data.map((category) => (
           <Stack key={category.name} spacing={2} direction="row" alignItems="center">
             <Box sx={{ width: 40, height: 40 }}>{category.icon}</Box>
@@ -91,7 +91,7 @@ export default function FileStorageOverview({ data, total, chart, ...other }) {
             <Box sx={{ typography: 'subtitle2' }}> {fData(category.usedStorage)} </Box>
           </Stack>
         ))}
-      </Stack>
+      </Stack>}
     </Card>
   );
 }
