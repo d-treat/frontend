@@ -21,6 +21,7 @@ export interface ILink {
 interface IProps {
     children: React.ReactNode
 }
+
 const adminLinks: ILink[] = [
     { title: 'Overview', icon: 'menu.svg', href: '/admin/dashboard' },
     { title: 'Doctors', icon: 'user-octagon.svg', href: '/admin/dashboard/doctors' },
@@ -29,7 +30,13 @@ const adminLinks: ILink[] = [
     { title: "settings", icon: 'setting-2.svg', href: '/admin/dashboard/settings' },
 ]
 
-const 
+const doctorLinks: ILink[] = [
+    { title: 'Overview', icon: 'menu.svg', href: '/doctor/dashboard' },
+    { title: 'Doctors', icon: 'user-octagon.svg', href: '/doctor/dashboard/doctors' },
+    { title: "Cases", icon: 'data.svg', href: '/doctor/dashboard/cases' },
+    { title: 'Appointments', icon: 'book.svg', href: '/doctor/dashboard/appointments' },
+    { title: "File Manager", icon: "menu.svg", href: "/doctor/dashboard/file-manager" }
+]
 
 export default function DashboardLayout({ children }: IProps) {
     const { user } = useAuth();
@@ -40,18 +47,25 @@ export default function DashboardLayout({ children }: IProps) {
             {/* sidebar */}
             <div className='w-[20vw] lg:w-[15vw]  h-screen fixed top-0 left-0 p-4 space-y-10 border-r-2 border-grayish-100'>
                 <Logo showText />
-                <div className='flex flex-col gap-5 px-4'>
+                {router.pathname.includes("/doctor/") && <div className='flex flex-col gap-5 px-4'>
                     {
-                        links.map((link, index) => (
+                        doctorLinks.map((link, index) => (
                             <SidebarLink {...link} key={link.title} />
                         ))
                     }
-                </div>
+                </div>}
+                {router.pathname.includes("/admin/") && <div className='flex flex-col gap-5 px-4 lg:px-2'>
+                    {
+                        adminLinks.map((link, index) => (
+                            <SidebarLink {...link} key={link.title} />
+                        ))
+                    }
+                </div>}
             </div>
             <div className='w-[80vw] lg:w-[85%] ml-[20vw] lg:ml-[15%] z-10 h-screen px-6 lg:px-10'>
                 {/* navbar */}
-
-
+                {router.pathname.includes("/doctor/") && <DoctorNavbar />}
+                {router.pathname.includes("/admin/") && <AdminNavbar />}
                 {/* page content */}
                 <div className='w-full mt-[10vh]'>
                     {children}

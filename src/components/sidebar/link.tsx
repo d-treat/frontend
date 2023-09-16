@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-import { ILink } from '../layouts/AdminDashboardLayout';
+import { ILink } from '../layouts/DashboardLayout';
 
 const SidebarLink = ({ title, icon, href }: ILink) => {
     return (
