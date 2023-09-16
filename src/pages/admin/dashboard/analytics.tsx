@@ -1,7 +1,15 @@
-import React from 'react'
+import Head from 'next/head';
+import { OverviewEcommerceView } from 'src/sections/overview/e-commerce/view';
 
-export default function Analytics() {
+// ----------------------------------------------------------------------
+
+export default function OverviewEcommercePage() {
   return (
-    <div>Analytics</div>
-  )
+    <>
+      <Head>
+        <title>Dashboard - Analytics</title>
+      </Head>
+      <OverviewEcommerceView />
+    </>
+  );
 }

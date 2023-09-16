@@ -37,7 +37,7 @@ export default function OverviewEcommerceView() {
   const settings = useSettingsContext();
 
   return (
-    <Container maxWidth={settings.themeStretch ? false : 'xl'}>
+    <Container maxWidth={settings.themeStretch ? false : '2xl'}>
       <Grid container spacing={3}>
         <Grid xs={12} md={8}>
           <EcommerceWelcome
@@ -53,7 +53,11 @@ export default function OverviewEcommerceView() {
         </Grid>
 
         <Grid xs={12} md={4}>
-          <EcommerceNewProducts list={_ecommerceNewProducts} />
+          {/* <EcommerceNewProducts list={_ecommerceNewProducts} /> */}
+          {/* <EcommerceNewProducts list={[]} /> */}
+          <div className='w-full h-full bg-gray-400 rounded-xl '>
+
+          </div>
         </Grid>
 
         <Grid xs={12} md={4}>
@@ -169,13 +173,13 @@ export default function OverviewEcommerceView() {
 
         <Grid xs={12} md={6} lg={8}>
           <EcommerceBestSalesman
-            title="Best Salesman"
+            title="Best Doctors"
             tableData={_ecommerceBestSalesman}
             tableLabels={[
-              { id: 'name', label: 'Seller' },
-              { id: 'category', label: 'Product' },
+              { id: 'name', label: 'Doctor' },
+              { id: 'category', label: 'Speciality' },
               { id: 'country', label: 'Country', align: 'center' },
-              { id: 'totalAmount', label: 'Total', align: 'right' },
+              { id: 'totalAmount', label: 'Total Cases', align: 'right' },
               { id: 'rank', label: 'Rank', align: 'right' },
             ]}
           />

@@ -69,7 +69,7 @@ function EcommerceBestSalesmanRow({ row }) {
         <Iconify icon={row.flag} sx={{ borderRadius: 0.65, width: 28 }} />
       </TableCell>
 
-      <TableCell align="right">{fCurrency(row.totalAmount)}</TableCell>
+      <TableCell align="right">{fCurrency(row.totalAmount).slice(1)}</TableCell>
 
       <TableCell align="right">
         <Label
