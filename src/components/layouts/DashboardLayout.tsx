@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React from 'react'
 import { AiOutlineBell, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { FaSearch } from 'react-icons/fa';
-import { FiLogOut } from 'react-icons/fi';
+import { FiFile, FiFolder, FiLogOut } from 'react-icons/fi';
 import { IconType } from 'react-icons/lib';
 import Logo from '../common/logo';
 import SidebarLink from '../sidebar/link';
@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 
 
 export interface ILink {
-    icon: string | IconType;
+    Icon: string | IconType;
     title: string;
     href: string;
 }
@@ -23,18 +23,18 @@ interface IProps {
 }
 
 const adminLinks: ILink[] = [
-    { title: 'Overview', icon: 'menu.svg', href: '/admin/dashboard' },
-    { title: 'Doctors', icon: 'user-octagon.svg', href: '/admin/dashboard/doctors' },
-    { title: "Cases", icon: 'data.svg', href: '/admin/dashboard/cases' },
-    { title: "Files", icon: "data.svg", href: "/admin/dashboard/files" },
-    { title: "settings", icon: 'setting-2.svg', href: '/admin/dashboard/settings' },
+    { title: 'Overview', Icon: 'menu.svg', href: '/admin/dashboard' },
+    { title: 'Doctors', Icon: 'user-octagon.svg', href: '/admin/dashboard/doctors' },
+    { title: "Cases", Icon: 'data.svg', href: '/admin/dashboard/cases' },
+    { title: "Files", Icon: FiFile, href: "/admin/dashboard/files" },
+    { title: "settings", Icon: 'setting-2.svg', href: '/admin/dashboard/settings' },
 ]
 
 const doctorLinks: ILink[] = [
-    { title: 'Overview', icon: 'menu.svg', href: '/doctor/dashboard' },
-    { title: "Cases", icon: 'data.svg', href: '/doctor/dashboard/cases' },
-    { title: 'Appointments', icon: 'book.svg', href: '/doctor/dashboard/appointments' },
-    { title: "File Manager", icon: "menu.svg", href: "/doctor/dashboard/file-manager" }
+    { title: 'Overview', Icon: 'menu.svg', href: '/doctor/dashboard' },
+    { title: "Cases", Icon: 'data.svg', href: '/doctor/dashboard/cases' },
+    { title: 'Appointments', Icon: 'book.svg', href: '/doctor/dashboard/appointments' },
+    { title: "File Manager", Icon:FiFolder, href: "/doctor/dashboard/file-manager" }
 ]
 
 export default function DashboardLayout({ children }: IProps) {

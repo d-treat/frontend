@@ -2,7 +2,7 @@ import '@/styles/globals.css';
 import "@/styles/nprogress.css";
 import ThemeProvider from '@/theme';
 import type { AppProps } from 'next/app';
-import { League_Spartan } from "next/font/google";
+import { League_Spartan,Raleway } from "next/font/google";
 import Router, { useRouter } from 'next/router';
 import { LocalizationProvider } from 'src/locales';
 // @ts-ignore
@@ -18,9 +18,15 @@ import { SettingsProvider } from '../../src/components/settings';
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   preload: true
 });
 
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  preload: true
+});
 
 
 NProgress.configure({
@@ -50,7 +56,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <MotionLazy>
             <SnackbarProvider>
               <RecoilRoot>
-                <div className={`${leagueSpartan.className}`}>
+                <div className={`${raleway.className}`}>
                   <Toaster />
                   {
                     router.pathname.includes("/dashboard") ?
