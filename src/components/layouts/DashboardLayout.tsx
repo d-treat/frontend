@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React from 'react'
 import { AiOutlineBell, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { FaSearch } from 'react-icons/fa';
-import { FiBarChart, FiFile, FiFolder, FiLogOut, FiSettings } from 'react-icons/fi';
+import { FiBarChart, FiFile, FiFolder, FiLogOut, FiPieChart, FiSettings } from 'react-icons/fi';
 import { IconType } from 'react-icons/lib';
 import Logo from '../common/logo';
 import SidebarLink from '../sidebar/link';
@@ -35,7 +35,8 @@ const doctorLinks: ILink[] = [
     { title: 'Overview', Icon: 'menu.svg', href: '/doctor/dashboard' },
     { title: "Cases", Icon: 'data.svg', href: '/doctor/dashboard/cases' },
     { title: 'Appointments', Icon: 'book.svg', href: '/doctor/dashboard/appointments' },
-    { title: "File Manager", Icon: FiFolder, href: "/doctor/dashboard/file-manager" }
+    { title: "File Manager", Icon: FiFolder, href: "/doctor/dashboard/file-manager" },
+    { title: "Your Stats", href: "/doctor/dashboard/stats", Icon: FiPieChart },
 ]
 
 export default function DashboardLayout({ children }: IProps) {

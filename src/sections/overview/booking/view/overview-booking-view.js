@@ -161,9 +161,6 @@ export default function OverviewBookingView() {
           </Grid>
         </Grid>
 
-        <Grid xs={12}>
-          <BookingNewest title="Newest Booking" subheader="12 Booking" list={_bookingNew} />
-        </Grid>
 
         <Grid xs={12}>
           <BookingDetails
