@@ -28,9 +28,14 @@ export default function useAuth() {
                     router.push('/doctor/dashboard')
                 }
             }
-        } catch (error) {
-            console.log(error);
-            toast.error("An error occured while logging in! try again later!");
+
+        } catch ({ response }: any) {
+            console.log(response)
+            if (response?.status === 400) {
+                toast.error("Invalid Credentials");
+            } else {
+                toast.error("Something went wrong");
+            }
         } finally {
             setLoggingIn(false);
         }

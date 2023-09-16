@@ -8,7 +8,6 @@ import Box from '@mui/material/Box';
 //
 import { getRatio } from './utils';
 
-// ----------------------------------------------------------------------
 
 const Image = forwardRef(
   (
