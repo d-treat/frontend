@@ -1,12 +1,9 @@
-import DoctorDashboardLayout from '@/components/layouts/DoctorDashboardLayout'
+import ProfileSidebar from '@/components/profileSidebar'
 import Head from 'next/head'
 import Image from 'next/image'
-import React from 'react'
-import {AiOutlineVideoCamera, AiFillSchedule} from 'react-icons/ai'
-import {RxSwitch} from 'react-icons/rx'
-import Switch from 'react-switch'
 import { useState } from 'react'
-import ProfileSidebar from '@/components/profileSidebar'
+import { AiFillSchedule, AiOutlineVideoCamera } from 'react-icons/ai'
+import Switch from 'react-switch'
 
 // interface IAppointment{
 //   name: string;
