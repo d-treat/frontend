@@ -32,7 +32,6 @@ const adminLinks: ILink[] = [
 
 const doctorLinks: ILink[] = [
     { title: 'Overview', icon: 'menu.svg', href: '/doctor/dashboard' },
-    { title: 'Doctors', icon: 'user-octagon.svg', href: '/doctor/dashboard/doctors' },
     { title: "Cases", icon: 'data.svg', href: '/doctor/dashboard/cases' },
     { title: 'Appointments', icon: 'book.svg', href: '/doctor/dashboard/appointments' },
     { title: "File Manager", icon: "menu.svg", href: "/doctor/dashboard/file-manager" }
