@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React from 'react'
 import { AiOutlineBell, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { FaSearch } from 'react-icons/fa';
-import { FiBarChart, FiFile, FiFolder, FiLogOut } from 'react-icons/fi';
+import { FiBarChart, FiFile, FiFolder, FiLogOut, FiSettings } from 'react-icons/fi';
 import { IconType } from 'react-icons/lib';
 import Logo from '../common/logo';
 import SidebarLink from '../sidebar/link';
@@ -28,7 +28,7 @@ const adminLinks: ILink[] = [
     { title: "Cases", Icon: 'data.svg', href: '/admin/dashboard/cases' },
     { title: "Files", Icon: FiFile, href: "/admin/dashboard/files" },
     { title: "Analytics", Icon: FiBarChart, href: "/admin/dashboard/analytics" },
-    { title: "settings", Icon: 'setting-2.svg', href: '/admin/dashboard/settings' },
+    { title: "settings", Icon: FiSettings, href: '/admin/dashboard/settings' },
 ]
 
 const doctorLinks: ILink[] = [
