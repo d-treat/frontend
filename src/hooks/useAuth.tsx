@@ -1,4 +1,5 @@
 import axios from "@/axios.config";
+import { IAdmin, IDoctor } from "@/types";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -6,29 +7,23 @@ import toast from "react-hot-toast";
 export default function useAuth() {
     const [loggingIn, setLoggingIn] = useState(false);
     const router = useRouter();
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<IDoctor | IAdmin | null>(null);
 
     const login = async (email: string, password: string) => {
         setLoggingIn(true);
         try {
-            if (email === "mugaboarstide@gmail.com") {
-                router.push('/doctor/dashboard');
-                setLoggingIn(false);
-                return;
-            }
             const { data } = await axios.post('/auth/login', {
                 email, password
             });
             if (data.success) {
                 if (data.admin) {
-                    setUser(data.admin);
+                    setUser(data.admin as IAdmin);
                     router.push('/admin/dashboard');
                 } else {
-                    setUser(data.doctor);
+                    setUser(data.doctor as IDoctor);
                     router.push('/doctor/dashboard')
                 }
             }
-
         } catch ({ response }: any) {
             console.log(response)
             if (response?.status === 400) {

@@ -1,3 +1,8 @@
+export interface DBDocument {
+    _id: string;
+    createdAt: string;
+    updatedAt: string;
+}
 export interface Invite {
     _id: string;
     name: string;
@@ -5,7 +10,30 @@ export interface Invite {
     organization: IOrganization
 }
 
-export interface IOrganization {
-    _id: string;
+export interface IOrganization extends DBDocument {
     name: string;
+}
+
+export interface IFile extends DBDocument {
+    filename: string;
+}
+
+
+export interface IPerson extends DBDocument {
+    fulllName: string,
+    email: string;
+    phoneNumber: string;
+    organization: IOrganization;
+}
+
+export interface IDoctor extends IPerson {
+    bio: string;
+    cv: IFile;
+    specialization: string;
+    gender: "male" | "female" | "other";
+}
+
+export interface IAdmin extends IPerson {
+    address: string;
+    proofOfOwnership: IFile;
 }
