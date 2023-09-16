@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React from 'react'
 import { AiOutlineBell, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { FaSearch } from 'react-icons/fa';
-import { FiFile, FiFolder, FiLogOut } from 'react-icons/fi';
+import { FiBarChart, FiFile, FiFolder, FiLogOut } from 'react-icons/fi';
 import { IconType } from 'react-icons/lib';
 import Logo from '../common/logo';
 import SidebarLink from '../sidebar/link';
@@ -27,6 +27,7 @@ const adminLinks: ILink[] = [
     { title: 'Doctors', Icon: 'user-octagon.svg', href: '/admin/dashboard/doctors' },
     { title: "Cases", Icon: 'data.svg', href: '/admin/dashboard/cases' },
     { title: "Files", Icon: FiFile, href: "/admin/dashboard/files" },
+    { title: "Analytics", Icon: FiBarChart, href: "/admin/dashboard/analytics" },
     { title: "settings", Icon: 'setting-2.svg', href: '/admin/dashboard/settings' },
 ]
 
@@ -34,7 +35,7 @@ const doctorLinks: ILink[] = [
     { title: 'Overview', Icon: 'menu.svg', href: '/doctor/dashboard' },
     { title: "Cases", Icon: 'data.svg', href: '/doctor/dashboard/cases' },
     { title: 'Appointments', Icon: 'book.svg', href: '/doctor/dashboard/appointments' },
-    { title: "File Manager", Icon:FiFolder, href: "/doctor/dashboard/file-manager" }
+    { title: "File Manager", Icon: FiFolder, href: "/doctor/dashboard/file-manager" }
 ]
 
 export default function DashboardLayout({ children }: IProps) {

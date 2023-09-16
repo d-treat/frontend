@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import { Controller, useFormContext } from 'react-hook-form';
-import { MuiOtpInput } from 'mui-one-time-password-input';
-// @mui
+
 import FormHelperText from '@mui/material/FormHelperText';
 
 // ----------------------------------------------------------------------
+const MuiOtpInput = dynamic(() => import('mui-one-time-password-input'), {
+  ssr: false
+});
+
+
 
 export default function RHFCode({ name, ...other }) {
   const { control } = useFormContext();

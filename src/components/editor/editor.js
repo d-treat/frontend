@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import 'src/utils/highlight';
-import ReactQuill from 'react-quill';
+import dynamic from 'next/dynamic';
 // @mui
 import { alpha } from '@mui/material/styles';
 //
@@ -8,7 +8,10 @@ import { StyledEditor } from './styles';
 import Toolbar, { formats } from './toolbar';
 
 // ----------------------------------------------------------------------
-
+const ReactQuill = dynamic(() => import('react-quill'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+});
 export default function Editor({
   id = 'minimal-quill',
   error,

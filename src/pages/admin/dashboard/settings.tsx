@@ -1,9 +1,16 @@
-import React from 'react'
+import { AccountView } from '@/sections/account/view';
+import Head from 'next/head';
 
-const AdminSettings = () => {
+// ----------------------------------------------------------------------
+
+export default function AccountPage() {
   return (
-    <div>AdminSettings</div>
-  )
-}
+    <>
+      <Head>
+        <title> D-treat : Account Settings</title>
+      </Head>
 
-export default AdminSettings
+      <AccountView />
+    </>
+  );
+}

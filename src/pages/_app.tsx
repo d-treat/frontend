@@ -61,8 +61,10 @@ export default function App({ Component, pageProps }: AppProps) {
                   {
                     router.pathname.includes("/dashboard") ?
                       <DashboardLayout>
+                        {/* @ts-ignore */}
                         <Component {...pageProps} />
                       </DashboardLayout> :
+                      // @ts-ignore
                       <Component {...pageProps} />
                   }
                 </div>

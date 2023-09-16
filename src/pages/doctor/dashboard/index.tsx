@@ -77,6 +77,7 @@ const DoctorDashboard = () => {
                   <p>{to.time}</p>
                   </div>
                   <div className='mt-3 ml-auto '>
+                    {/* @ts-ignore */}
                   <Switch onChange={handleChange} checked={checked} height={20} width={40} />
                   </div>
                 </div>
