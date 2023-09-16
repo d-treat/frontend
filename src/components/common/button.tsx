@@ -9,7 +9,7 @@ const Button = ({ dark, children, onClick, type, className }: Props) => {
     return (
         <button className={
             `text-white w-full py-2 rounded-md capitalize text-center flex items-center justify-center
-             ${dark ? "bg-secondary-100" : "bg-primary-100"
+            ${dark ? "bg-secondary-100" : "bg-primary-100"
             } ${className}`}
             onClick={onClick}
             type={type}

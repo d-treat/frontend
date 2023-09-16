@@ -10,6 +10,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 // components
 import FormProvider from 'src/components/hook-form';
 import { useSnackbar } from 'src/components/snackbar';
+import Button from '@/components/common/button';
+import Loader from '@/components/Loader';
 
 // ----------------------------------------------------------------------
 
@@ -122,9 +124,11 @@ export default function AccountNotifications() {
           </Grid>
         ))}
 
-        <LoadingButton type="submit" variant="contained" loading={isSubmitting} sx={{ ml: 'auto' }}>
-          Save Changes
-        </LoadingButton>
+        <div className='w-full flex justify-end'>
+          <Button type="submit" variant="contained" className='self-end w-max px-4  right-1' >
+            {isSubmitting ? <Loader /> : "Save Changes"}
+          </Button>
+        </div>
       </Stack>
     </FormProvider>
   );

@@ -9,6 +9,8 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Iconify from 'src/components/iconify';
 import { useSnackbar } from 'src/components/snackbar';
 import FormProvider, { RHFTextField } from 'src/components/hook-form';
+import Button from '@/components/common/button';
+import Loader from '@/components/Loader';
 
 // ----------------------------------------------------------------------
 
@@ -74,9 +76,11 @@ export default function AccountSocialLinks({ socialLinks }) {
           />
         ))}
 
-        <LoadingButton type="submit" variant="contained" loading={isSubmitting} sx={{ ml: 'auto' }}>
-          Save Changes
-        </LoadingButton>
+        <div className='w-full flex justify-end'>
+          <Button type="submit" variant="contained" className='self-end w-max px-4  right-1' >
+            {isSubmitting ? <Loader /> : "Save Changes"}
+          </Button>
+        </div>
       </Stack>
     </FormProvider>
   );
