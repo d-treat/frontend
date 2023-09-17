@@ -22,6 +22,9 @@ module.exports = {
         },
         'grayish':{
           '100':'#F5F5F5'
+        },
+        'orangish':{
+          '100': "#F4A28C"
         }
       }
     },
