@@ -114,7 +114,7 @@ const Case = () => {
                                                 <p className="text-gray-500 text-sm">{doctor.department}</p>
                                             </div>
                                         </div>
-                                        <Button className="w-fit px-5">
+                                        <Button className="w-max px-5">
                                             View Profile
                                         </Button>
                                     </div>

@@ -1,15 +1,14 @@
-import useAuth from '@/hooks/useAuth';
-import Button from '../common/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
+import { useRouter } from 'next/router';
+import React from 'react';
 import { AiOutlineBell, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { FaSearch } from 'react-icons/fa';
 import { FiBarChart, FiFile, FiFolder, FiLogOut, FiPieChart, FiSettings } from 'react-icons/fi';
 import { IconType } from 'react-icons/lib';
+import Button from '../common/button';
 import Logo from '../common/logo';
 import SidebarLink from '../sidebar/link';
-import { useRouter } from 'next/router';
 
 
 export interface ILink {
@@ -40,7 +39,7 @@ const doctorLinks: ILink[] = [
 ]
 
 export default function DashboardLayout({ children }: IProps) {
-    const { user } = useAuth();
+
     const router = useRouter();
 
     return (
@@ -63,12 +62,12 @@ export default function DashboardLayout({ children }: IProps) {
                     }
                 </div>}
             </div>
-            <div className='w-[80vw] lg:w-[85%] ml-[20vw] lg:ml-[15%] z-10 h-screen px-6 lg:px-10'>
+            <div className={`w-[80vw] lg:w-[85%] ml-[20vw] lg:ml-[15%] z-10 h-screen ${!router.pathname.includes('/chat') && "px-6 lg:px-10"} `}>
                 {/* navbar */}
                 {router.pathname.includes("/doctor/") && <DoctorNavbar />}
                 {router.pathname.includes("/admin/") && <AdminNavbar />}
                 {/* page content */}
-                <div className='w-full mt-[10vh]'>
+                <div className={`w-full  ${!router.pathname.includes("/chat") ? "mt-[10vh]" : "mt-[8vh]"}`}>
                     {children}
                 </div>
             </div>
