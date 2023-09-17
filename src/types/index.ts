@@ -37,3 +37,12 @@ export interface IAdmin extends IPerson {
     address: string;
     proofOfOwnership: IFile;
 }
+
+export interface IMessage {
+    yours?: boolean;
+    sentAt: string;
+    image?: string;
+    text?: string;
+    sentBy?: string;
+    dm?: boolean;
+}

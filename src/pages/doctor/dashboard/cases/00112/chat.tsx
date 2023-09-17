@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
-import { FiSend } from 'react-icons/fi'
+import { FiSearch, FiSend } from 'react-icons/fi'
 
 export default function Chat() {
     return (
@@ -10,9 +10,17 @@ export default function Chat() {
                 <title>D-treat - Chat</title>
             </Head>
             <div className='w-full min-h-[92vh] flex '>
-                {/* contacts  & channels*/}
-                <div className='w-1/4 shadow-md border-r-2 border-gray-100  '>
+                {/* sidebar*/}
+                <div className='w-1/4  pt-4 px-2 shadow-md border-r-2 border-gray-100  space-y-4 '>
+                    {/* search  */}
+                    <div className='relative w-full'>
+                        <input className='absolute w-full outline-none pr-4 p-2 border-2 border-gray-100 hover:border-gray-400 rounded-md' placeholder='Search someone...' />
+                        <FiSearch className='absolute w-5 h-5 right-2 top-3 text-gray-500' />
+                    </div>
+                    {/* contacts */}
+                    <div className='space-y-2'>
 
+                    </div>
                 </div>
                 {/* chat */}
                 <div className='w-3/4  flex flex-col justify-between'>

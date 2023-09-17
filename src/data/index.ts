@@ -1,3 +1,4 @@
+import { IMessage } from "@/types";
 import { ILink } from "@/types/components";
 
 export const links: ILink[] = [
@@ -71,29 +72,37 @@ export const testimonials: { name: string, image: string, description: string }[
     },
 ]
 
-export const features: { title: string, description: string, bg: string,textColor:string }[] = [
+export const features: { title: string, description: string, bg: string, textColor: string }[] = [
     {
         title: 'Virtual Reality',
         bg: "linear-gradient(131.63deg, rgba(226, 149, 120, 0.25) 26.47%, rgba(217, 217, 217, 0.1) 100%)",
         description: '',
-        textColor:'#E29578'
+        textColor: '#E29578'
     },
     {
         title: 'Seamless Communication',
         bg: "linear-gradient(66.04deg, rgba(217, 217, 217, 0.1) 0%, rgba(33, 141, 130, 0.25) 100%)",
         description: '',
-        textColor:'#218D82'
+        textColor: '#218D82'
     },
     {
         title: 'Medical Records',
         bg: 'linear-gradient(228.37deg, rgba(33, 141, 130, 0.25) 26.47%, rgba(217, 217, 217, 0.1) 100%)',
         description: '',
-        textColor:'#218D82'
+        textColor: '#218D82'
     },
     {
         title: '24/7 Support',
         bg: 'linear-gradient(112.35deg, rgba(226, 149, 120, 0.25) 2.19%, rgba(217, 217, 217, 0) 100%, rgba(217, 217, 217, 0.1) 100%)',
         description: '',
-        textColor:'#E29578'
+        textColor: '#E29578'
     }
+]
+
+export const messages: IMessage[] = [
+    {
+        text: "Morning Dr. Angelie, The patient is not feeling well and I can’t figure out the problem.",
+        sentAt: "Today 11:52",
+        yours: true
+    },
 ]
