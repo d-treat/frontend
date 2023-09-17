@@ -47,7 +47,7 @@ export default function CaseProgress({ title, subheader, chart, ...other }) {
                     name: { offsetY: -16 },
                     value: { offsetY: 8 },
                     total: {
-                        label: 'Tours',
+                        label: 'Days',
                         formatter: () => fNumber(total),
                     },
                 },

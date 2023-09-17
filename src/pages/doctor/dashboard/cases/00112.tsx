@@ -111,48 +111,19 @@ const Case = () => {
         <div className="mt-8 flow-root p-3 rounded-lg"
           style={{
             borderTop: "0.2px solid #D9D9D9",
-            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
+            boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)"
           }}
         >
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
 
             <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <h2>Patient Invloved</h2>
-              <table className="min-w-full divide-y divide-gray-300">
-                <thead>
-                  <tr>
-                    <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                      Patient Name
-                    </th>
-                    <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                      symptoms
-                    </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                      Disease
-                    </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                      Number Of Doctors
-                    </th>
+              <h2 className="text-lg font-semibold">Patient Invloved</h2>
+              <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 ">
+                  <div className="">
 
-
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 bg-white">
-                  {new Array(3).fill(cases[0]).map((cs: ICaseOverview) => (
-                    <tr key={cs.patientName} className="">
-                      <td className="td  ">{cs.patientName}</td>
-                      <td className="td px-0">{cs.symptoms}</td>
-
-                      <td className="td">{cs.disease}</td>
-                      <td className="td">{cs.numberOfDoctors}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </div>
+              </div>
             </div>
-
-
-
           </div>
         </div>
       </main>
