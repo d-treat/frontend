@@ -55,9 +55,9 @@ const Case = () => {
             </button>
           </div>
         </div>
-        <div className='flex justify-between  min-h-[50vh] items-center'>
+        <div className='flex justify-between  min-h-[50vh] items-center gap-4'>
 
-          <div className="w-1/2 h-full space-y-6">
+          <div className="w-1/2 h-full space-y-8">
             {/* @ts-ignore */}
             <CaseProgress
               title="Case Progress"
@@ -77,7 +77,35 @@ const Case = () => {
               </Button>
             </div>
           </div>
-
+          <div className="w-1/2 py-3 flex flex-col items-center min-h-[48vh] shadow-md ">
+            <h2 className='text-2xl font-medium'>Assigned Doctors</h2>
+            <div className="space-y-2 w-full">
+              {
+                new Array(5).fill(doctors[0]).map((doctor: any, idx) => (
+                  <div key={idx} className={`w-full flex items-center justify-between px-3 py-2 ${idx !== 4 && "border-b"}`}>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden">
+                        <Image
+                          className="w-full h-full"
+                          src={doctor.image}
+                          alt=""
+                          width={60}
+                          height={60}
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <h3 className=" font-semibold">{doctor.name}</h3>
+                        <p className="text-gray-500 text-sm">{doctor.department}</p>
+                      </div>
+                    </div>
+                    <Button className="w-fit px-5">
+                      View Profile
+                    </Button>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
 
         </div>
         <div className="mt-8 flow-root p-3 rounded-lg"
