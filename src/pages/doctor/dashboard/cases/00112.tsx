@@ -10,14 +10,29 @@ interface ICaseOverview {
   disease: string;
   numberOfDoctors: string;
 }
-const cases: ICaseOverview[] = [
-  {
-    patientName: 'Hirwa Vanessa',
-    symptoms: 'headache| dizzi| chest pain',
-    disease: 'high blood pressure',
-    numberOfDoctors: '5'
+
+const patient = {
+  name: "John Doe",
+  age: 23,
+  gender: "Male",
+  symptoms: ["headache", "fever"],
+  disease: "Not yet diagnosed",
+  allergies: ["penicillin"],
+  medications: ["ibuprofen"],
+  bloodType: "A+",
+  medicalHistory: [
+    { date: "2023-09-17", description: "Routine check-up" },
+    { date: "2023-08-25", description: "Flu symptoms" }
+  ],
+  insuranceProvider: "ABC Insurance",
+  contactInfo: {
+    phoneNumber: "555-555-5555",
+    email: "johndoe@example.com",
+    address: "123 Main Street"
   }
-]
+};
+
+
 const doctors = [
   {
     name: 'Lindsay Walton',
@@ -73,7 +88,7 @@ const Case = () => {
                 View Group Chat
               </Button>
               <Button dark >
-                Mark Completed
+                Mark as Completed
               </Button>
             </div>
           </div>
@@ -108,25 +123,41 @@ const Case = () => {
           </div>
 
         </div>
-        <div className="mt-8 flow-root p-3 rounded-lg"
+
+        <div className="mt-8 flow-root rounded-lg shadow-lg"
           style={{
             borderTop: "0.2px solid #D9D9D9",
-            boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)"
           }}
         >
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
 
-            <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <h2 className="text-lg font-semibold">Patient Invloved</h2>
-              <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 ">
-                  <div className="">
+            <div className="inline-block min-w-full  align-middle sm:px-6 lg:px-8 space-y-3">
+              <div className="w-full py-3 rounded-t-lg bg-gray-100 text-center">
+                <h2 className="text-lg font-semibold">Patient Involved</h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 min-h-[25vh]">
+                <div className="flex flex-col px-5 py-2 h-4/5 border-r border-gray-300">
+                  <h3 className="font-semibold text-xl mb-2">Patient Information</h3>
+                  <p><span className="font-semibold">Name:</span> {patient.name}</p>
+                  <p><span className="font-semibold">Age:</span> {patient.age}</p>
+                  <p><span className="font-semibold">Gender:</span> {patient.gender}</p>
+                  <p><span className="font-semibold">Symptoms:</span> {patient.symptoms.join(', ')}</p>
+                </div>
 
-                  </div>
+                <div className="flex flex-col px-5 py-2">
+                  <h3 className="font-semibold text-xl mb-2">Disease Information</h3>
+                  <p><span className="font-semibold">Disease:</span> {patient.disease}</p>
+                  <p><span className="font-semibold">Allergies:</span> {patient.allergies.join(', ')}</p>
+                  <p><span className="font-semibold">Medications:</span> {patient.medications.join(', ')}</p>
+                  <p><span className="font-semibold">Blood Type:</span> {patient.bloodType}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </main>
+
+
+      </main >
     </>
   )
 }
