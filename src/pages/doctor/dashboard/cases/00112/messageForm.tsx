@@ -1,0 +1,58 @@
+import {  MessageObject, MessageFormProps } from "react-chat-engine-advanced";
+import { useContext, useState } from "react";
+import { Context } from "./functions/context";
+import { nowTimeStamp } from "./functions/dates";
+
+
+const MessageForm = (props: MessageFormProps) => {
+    
+    const [text, setText] = useState<string>("");
+    const { user } = useContext(Context);
+    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        
+        event.preventDefault();
+    
+        if (text.trim().length === 0) {
+          return;
+        }
+        if (!user || user.email === null) {
+          return;
+        }
+    
+        setText("");
+    
+        const message: MessageObject = {
+          text: text,
+          sender_username: user.email,
+          created: nowTimeStamp(),
+          custom_json: {},
+          attachments: [],
+        };
+    
+        props.onSubmit && props.onSubmit(message);
+      };
+  
+    return (
+      <form onSubmit={onSubmit} className="flex h-[76px] justify-between">
+        <input
+          onChange={(e) => setText(e.target.value)}
+          value={text} 
+          placeholder="Send your message"
+          className="pl-6 w-[90%]"
+        />
+  
+        <button type="submit" className="ce-custom-send-button">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="44" height="44" rx="10" fill="#F4A28C"/>
+<path d="M26.1401 12.96L17.1101 15.96C11.0401 17.99 11.0401 21.3 17.1101 23.32L19.7901 24.21L20.6801 26.89C22.7001 32.96 26.0201 32.96 28.0401 26.89L31.0501 17.87C32.3901 13.82 30.1901 11.61 26.1401 12.96ZM26.4601 18.34L22.6601 22.16C22.5101 22.31 22.3201 22.38 22.1301 22.38C21.9401 22.38 21.7501 22.31 21.6001 22.16C21.3101 21.87 21.3101 21.39 21.6001 21.1L25.4001 17.28C25.6901 16.99 26.1701 16.99 26.4601 17.28C26.7501 17.57 26.7501 18.05 26.4601 18.34Z" fill="white"/>
+</svg>
+        </button>
+      </form>
+    );
+
+    
+};
+  
+  export default MessageForm
+
+  

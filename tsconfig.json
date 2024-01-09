@@ -19,6 +19,7 @@
       "src/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/sections/account/view/user-account-view.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/sections/account/view/user-account-view.js","react-chat-engine.d.ts"
+],
   "exclude": ["node_modules"]
 }
