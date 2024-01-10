@@ -36,7 +36,7 @@ const ChatsPage = () => {
             
 
             <MultiChatWindow style={{height:"90vh", width:"100%"}}  {...chatProps} 
-             renderChatSettings={() => <div className="ce-empty-settings" />}
+            //  renderChatSettings={() => <div className="ce-empty-settings" />}
 
             //  renderChatFeed={(props: ChatFeedProps)=>(
             //     <ChatFeed {...props} />
